@@ -1,0 +1,431 @@
+ ٠<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>❤️ اختبار حب أموتة لمهند ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Tajawal',sans-serif; }
+  body {
+    background: linear-gradient(160deg,#fff0f6,#ffe3ee,#fff7fb);
+    min-height:100vh; display:flex; align-items:center; justify-content:center;
+    padding:16px; color:#4a2b3a;
+  }
+  .app { width:100%; max-width:520px; }
+  .card {
+    background:#fff; border-radius:26px; padding:24px 20px;
+    box-shadow:0 20px 50px rgba(255,77,136,.18);
+    border:1px solid #ffe3ee;
+  }
+  .screen { display:none; }
+  .screen.active { display:block; }
+  h1 {
+    font-size:24px; text-align:center; margin:12px 0 8px;
+    color:#ff2d6f; font-weight:800;
+  }
+  .big-heart { font-size:64px; text-align:center; animation:beat 1.3s infinite; }
+  @keyframes beat { 0%,100%{transform:scale(1)} 50%{transform:scale(1.15)} }
+  .sub { text-align:center; color:#a5708a; font-size:15px; line-height:1.8; margin-bottom:20px; }
+  .names { display:flex; justify-content:center; gap:8px; margin:14px 0 22px; font-weight:800; }
+  .names span { background:#fff0f6; color:#ff2d6f; padding:8px 14px; border-radius:99px; border:1px solid #ffdce9; }
+  .input {
+    width:100%; padding:14px; border-radius:16px; border:2px solid #ffe0ec;
+    background:#fff7fb; font-size:17px; text-align:center; outline:none;
+    margin-bottom:12px; font-family:inherit; font-weight:600; color:#5a3346;
+  }
+  .input:focus { border-color:#ff4d88; background:#fff; }
+  .btn {
+    width:100%; padding:15px; border:none; border-radius:16px;
+    background:linear-gradient(135deg,#ff2d6f,#ff85b3); color:#fff;
+    font-size:17px; font-weight:800; cursor:pointer; font-family:inherit;
+    box-shadow:0 10px 22px rgba(255,77,136,.32);
+  }
+  .btn:active { transform:scale(.98); }
+  .btn:disabled { opacity:.4; box-shadow:none; }
+  .btn.ghost { background:#fff; color:#ff2d6f; border:2px solid #ffdce9; box-shadow:none; margin-top:10px; }
+  .top { display:flex; justify-content:space-between; margin-bottom:8px; }
+  .pill { background:#fff0f6; color:#ff4d88; padding:4px 12px; border-radius:99px; font-size:13px; font-weight:700; }
+  .progress { height:8px; background:#ffe6f0; border-radius:99px; overflow:hidden; margin-bottom:18px; }
+  .progress i { display:block; height:100%; width:0; background:linear-gradient(90deg,#ff2d6f,#ff9ec4); transition:width .3s; }
+  .q-text { font-size:18px; font-weight:800; line-height:1.7; margin-bottom:16px; color:#43222f; min-height:60px; }
+  .options { display:flex; flex-direction:column; gap:9px; margin-bottom:18px; }
+  .option {
+    display:flex; align-items:center; gap:10px; background:#fff5f9;
+    border:2px solid #ffe0ec; border-radius:16px; padding:13px 15px;
+    font-family:inherit; font-size:15px; font-weight:600; color:#5a3346;
+    cursor:pointer; text-align:right; line-height:1.5;
+  }
+  .option.selected { background:linear-gradient(135deg,#ff2d6f,#ff77a9); color:#fff; border-color:#ff2d6f; }
+  .dot { width:20px; height:20px; border-radius:50%; border:2px solid #ffb8d3; flex:0 0 auto; }
+  .option.selected .dot { border-color:#fff; background:#fff; }
+  .row { display:flex; gap:8px; }
+  .row .btn { flex:1; }
+  .back { max-width:100px; background:#fff; color:#ff4d88; border:2px solid #ffdce9; box-shadow:none; }
+  .crown { font-size:50px; text-align:center; animation:beat 1.3s infinite; }
+  .res-title { font-size:20px; font-weight:800; text-align:center; color:#ff2d6f; margin:8px 0; line-height:1.6; }
+  .res-sub { text-align:center; color:#a5708a; font-size:14px; font-weight:700; margin-bottom:14px; }
+  .ring { width:160px; height:160px; border-radius:50%; margin:0 auto 18px; display:flex; align-items:center; justify-content:center; background:conic-gradient(#ff2d6f 0deg,#ffe3ee 0deg); }
+  .ring-inner { width:130px; height:130px; border-radius:50%; background:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; font-size:34px; font-weight:800; color:#ff2d6f; }
+  .ring-inner small { font-size:12px; color:#c07a99; margin-top:-4px; }
+  .report { background:#fff7fb; border:1px solid #ffe0ec; border-radius:16px; padding:10px 14px; margin-bottom:14px; }
+  .rep-row { display:flex; justify-content:space-between; padding:8px 4px; border-bottom:1px dashed #ffe0ec; font-size:14px; font-weight:700; }
+  .rep-row:last-child { border-bottom:none; }
+  .rep-row b { color:#ff2d6f; }
+  .conclusion { background:linear-gradient(135deg,#fff0f6,#ffe3ee); border-radius:16px; padding:14px; text-align:center; font-size:15px; font-weight:800; color:#c2185b; line-height:1.8; margin-bottom:12px; }
+  .love-note { background:#fff; border:2px dashed #ffb8d3; border-radius:16px; padding:14px; font-size:14px; line-height:2; color:#6b3c52; font-weight:600; text-align:center; margin-bottom:16px; }
+  .footer { text-align:center; font-size:12px; color:#d3a6ba; margin-top:14px; }
+  .share { display:block; width:100%; text-align:center; margin-top:12px; color:#c07a99; font-size:13px; font-weight:700; background:none; border:none; cursor:pointer; font-family:inherit; }
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- شاشة الترحيب -->
+  <div class="screen active" id="screen-welcome">
+    <div class="card">
+      <div class="big-heart">❤️</div>
+      <h1>اختبار حب أموتة لمهند</h1>
+      <p class="sub">اختبار رسمي جدًا 😂<br>لا يمكن الغش فيه ولا الهروب منه</p>
+      <div class="names">
+        <span>أموتة 💗</span>
+        <span>❤️</span>
+        <span>مهند 💙</span>
+      </div>
+      <input id="nameInput" class="input" type="text" placeholder="✍️ اكتبي اسمك يا أموتة..." autocomplete="off">
+      <button id="btnStart" class="btn" type="button">💘 ابدئي الاختبار</button>
+      <button id="btnShareForm" class="share" type="button">📤 شاركي النموذج على واتساب</button>
+      <div class="footer">صُنع بحب ❤️ من مهند</div>
+    </div>
+  </div>
+
+  <!-- شاشة الأسئلة -->
+  <div class="screen" id="screen-quiz">
+    <div class="card">
+      <div class="top">
+        <span class="pill" id="qCounter">السؤال 1 من 20</span>
+        <span class="pill" id="qHeart">💗</span>
+      </div>
+      <div class="progress"><i id="progressFill"></i></div>
+      <div class="q-text" id="qText"></div>
+      <div class="options" id="options"></div>
+      <div class="row">
+        <button id="btnBack" class="btn back" type="button">‹ رجوع</button>
+        <button id="btnNext" class="btn" type="button" disabled>التالي ›</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- شاشة النتيجة -->
+  <div class="screen" id="screen-result">
+    <div class="card">
+      <div class="crown">💗</div>
+      <h2 class="res-title" id="resTitle"></h2>
+      <p class="res-sub" id="resSub"></p>
+      <div class="ring" id="ring">
+        <div class="ring-inner">
+          <span id="scoreNum">0</span>
+          <small>%</small>
+        </div>
+      </div>
+      <div class="report" id="report"></div>
+      <div class="conclusion" id="conclusion"></div>
+      <div class="love-note" id="loveNote"></div>
+      <button id="btnShareResult" class="btn" type="button">📤 شاركي النتيجة على واتساب</button>
+      <button id="btnRestart" class="btn ghost" type="button">🔄 أعيدي الاختبار</button>
+      <div class="footer">صُنع بحب ❤️ من مهند</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var QUESTIONS = [
+    { q: "❤️ كم تشتاقين لمهند عندما لا يكلمك؟",
+      o: [["أموت من الشوق وما أقدر أستحمل 😭",5],["أشتاق كثير… بس أحاول أتمالك نفسي 🥺",4],["أشتاق شوي وأرجع أنشغل 🌸",3],["عادي، ما ألاحظ غيابه 🙈",2]] },
+
+    { q: "📱 عندما يظهر اسم مهند في إشعارات هاتفك، ماذا تشعرين؟",
+      o: [["قلبي يرقص وأبتسم كإني شفت الدنيا كلها 🥰",5],["أفرح وأفتح الرسالة بأسرع ما يمكن 🏃‍♀️",4],["أبتسم وأقرأه بهدوء 😊",3],["أفتح الإشعار عادي بدون شعور 😐",2]] },
+
+    { q: "💖 ما أكثر شيء تحبينه في مهند؟",
+      o: [["كل شيء… حتى لما يزعل ولما يسكت 😍",5],["طيبته وحنيته على قلبي 🫶🏻",4],["اهتمامه بأدق التفاصيل الصغيرة 🌷",3],["صوته وضحكته 🎶",2]] },
+
+    { q: "🫂 لو كان مهند أمامك الآن، ماذا ستفعلين؟",
+      o: [["أحضنه ولا أتركه أبدًا 🫂",5],["أمسك يده ونجلس نتكلم ساعات 🤝",4],["أضحك وأسلم عليه وأسولف 😄",3],["أكتفي بالنظر إليه من بعيد 👀",2]] },
+
+    { q: "😤 عندما يزعل مهند، هل تستطيعين تجاهله؟",
+      o: [["مستحيل… أراضيه ولو بعد ثانية 🥺",5],["أحاول أصبر بس قلبي ما يطاوعني 💔",4],["أنتظر شوي وبعدها أراضيه ⏳",3],["أقدر أتجاهله فترة وأكمل يومي 😌",2]] },
+
+    { q: "💭 كم مرة تفكرين في مهند خلال اليوم؟",
+      o: [["كل دقيقة وكل ثانية… ما يغيب عن بالي 😵‍💫",5],["كثير… أكثر من عشرين مرة 🥰",4],["عدة مرات بين فترة وفترة 🌸",3],["نادرًا… لما أتذكر 🙃",2]] },
+
+    { q: "🏡 هل تتخيلين مستقبلك مع مهند؟",
+      o: [["أتخيل بيتنا وكل تفاصيلنا وضحك أطفالنا 🏡",5],["أتخيل كثير وأحلم وأبتسم لوحدي 🌙",4],["أحيانًا لما أكون فاضية 💭",3],["ما فكرت بالموضوع بجدية 🤔",2]] },
+
+    { q: "🥹 ما أكثر كلمة من مهند تجعلك تبتسمين؟",
+      o: [["لما ينطق اسمي «أموتة» بصوته 🥹",5],["«اشتقت لك» ❤️",4],["«حبيبتي» 🌹",3],["«طمنيني عليك» 💌",2]] },
+
+    { q: "🎁 لو خيروك بين يوم كامل مع مهند أو هدية غالية، ماذا تختارين؟",
+      o: [["يوم كامل مع مهند… وما أبي غيره 💞",5],["اليوم مع مهند طبعًا، والهدية بونص 😂",4],["ممكن الاثنين؟ 😅",3],["الهدية… وبعدها أفكر 😜",2]] },
+
+    { q: "👑 ما لقب مهند في قلبك؟",
+      o: [["«حياتي»… هو كل شيء بالنسبة لي 👑",5],["«حبيبي» و«عمري» وكل الألقاب الحلوة 💞",4],["«مهند»… اسمه لحاله يكفيني 🥰",3],["ما عندي لقب محدد 🙈",2]] },
+
+    { q: "💌 عندما يقول لك مهند «اشتقت لك»، ما رد فعلك؟",
+      o: [["أذوب وأرد «وأنا اشتقت لك أكثر» 🫠",5],["أبتسم وأقول «وأنا بعد» 😊",4],["أرد بضحكة وأغير الموضوع 😅",3],["أرد «شكرًا»… ما في رد 😐",2]] },
+
+    { q: "🌙 هل تستطيعين النوم وأنتِ زعلانة من مهند؟",
+      o: [["مستحيل… لازم نتصالح قبل النوم 🌙",5],["أحاول أنام بس أفكر فيه الليل كله 😔",4],["أنام متأخرة وأنا زعلانة 😴",3],["أنام عادي… بكرة نتكلم 🙃",2]] },
+
+    { q: "😤 ما أكثر شيء يجعلك تغارين على مهند؟",
+      o: [["لما يتكلم مع أي بنت حتى لو عادي 😤",5],["لما يطول وهو مشغول عني 😒",4],["لما يمدح أحد غيري 🙄",3],["ما أغار… أنا واثقة 😎",2]] },
+
+    { q: "📵 لو اختفى مهند من واتساب يومًا كاملًا، ماذا ستفعلين؟",
+      o: [["أراسله وأتصل وأدور عليه، قلبي ما يتحمل 😰",5],["أنتظر بقلق وأراسله كل ساعة 😟",4],["أرسل رسالة وأستنى رده 🌷",3],["أكمل يومي عادي… أكيد مشغول 😌",2]] },
+
+    { q: "❤️ هل مهند مجرد حبيب أم أصبح جزءًا من حياتك؟",
+      o: [["أصبح جزءًا مني… ما أقدر أتخيل حياتي بدونه ❤️",5],["جزء كبير من حياتي وكل يومي 🫶🏻",4],["حبيب مهم… بس لسا في تفاصيل ثانية 🌸",3],["مجرد حبيب… والحياة تكمل 😅",2]] },
+
+    { q: "📜 لو كتب لك مهند رسالة طويلة، ماذا ستفعلين؟",
+      o: [["أقرأها عشر مرات وأحفظها 📜",5],["أقرأها بتركيز وأرد برسالة أطول ✍️",4],["أقرأها بسرعة وأرد باختصار 😊",3],["أفتحها وبعدين أنسى أرد 📱",2]] },
+
+    { q: "🌍 ما رأيك في اسم «مهند»؟",
+      o: [["أحلى اسم بالدنيا… ولو كان اسم واحد بالعالم يكفي 🌍",5],["اسم حلو وأحبه لأنه له 💕",4],["اسم عادي… بس صاحبه غالي 🙂",3],["ما عندي رأي فيه 🤷‍♀️",2]] },
+
+    { q: "🥹 لو سألك مهند «تحبيني؟»، ماذا تجيبين؟",
+      o: [["«أحبك أكثر من نفسي» 🥹",5],["«أحبك… كثير» 😍",4],["«طبعًا… أكيد» 😊",3],["«يمكن… شوي» 😏",2]] },
+
+    { q: "🫂 ما أكثر لحظة تحبينها مع مهند؟",
+      o: [["لما يسكت الحكي ونتطلع لبعض بس 🫂",5],["لما نتكلم ساعات بالليل ولا نمل 🌙",4],["لما نضحك ونسولف على أي شيء 😂",3],["لما نرسل رسائل بسيطة 📩",2]] },
+
+    { q: "💍 السؤال الأخير… هل تقبلين تكونين حبيبة مهند للأبد؟",
+      o: [["أقبل… وأوقع بالدم مو بس بالكلام 😂❤️",5],["أقبل طبعًا… وأنا محظوظة فيه 🥰",4],["أقبل… ونشوف المستقبل 🌸",3],["خليني أفكر 😜",2]] }
+  ];
+
+  var girlName = "";
+  var current = 0;
+  var answers = new Array(QUESTIONS.length);
+  var finalScore = 0;
+  var autoTimer = null;
+
+  function $(id) { return document.getElementById(id); }
+
+  function showScreen(id) {
+    var screens = document.querySelectorAll(".screen");
+    for (var i = 0; i < screens.length; i++) screens[i].classList.remove("active");
+    $(id).classList.add("active");
+    window.scrollTo(0, 0);
+  }
+
+  function startQuiz() {
+    var input = $("nameInput");
+    var v = (input.value || "").trim();
+    if (v === "") {
+      input.placeholder = "✍️ لازم تكتبين اسمك أول 😊";
+      input.style.borderColor = "#ff2d6f";
+      setTimeout(function () { input.style.borderColor = ""; }, 900);
+      return;
+    }
+    girlName = v;
+    current = 0;
+    answers = new Array(QUESTIONS.length);
+    renderQuestion();
+    showScreen("screen-quiz");
+  }
+
+  function renderQuestion() {
+    var q = QUESTIONS[current];
+
+    $("qCounter").textContent = "السؤال " + (current + 1) + " من " + QUESTIONS.length;
+    var hearts = ["💗","💖","💕","❤️","🌸"];
+    $("qHeart").textContent = hearts[current % hearts.length];
+    $("progressFill").style.width = (current / QUESTIONS.length * 100) + "%";
+    $("qText").textContent = q.q;
+
+    var box = $("options");
+    box.innerHTML = "";
+
+    for (var i = 0; i < q.o.length; i++) {
+      (function (idx) {
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "option";
+
+        var dot = document.createElement("span");
+        dot.className = "dot";
+
+        var txt = document.createElement("span");
+        txt.textContent = q.o[idx][0];
+
+        btn.appendChild(dot);
+        btn.appendChild(txt);
+
+        if (answers[current] === idx) btn.classList.add("selected");
+
+        btn.addEventListener("click", function () { selectOption(idx, btn); });
+        box.appendChild(btn);
+      })(i);
+    }
+
+    var isLast = current === QUESTIONS.length - 1;
+    var nextBtn = $("btnNext");
+    nextBtn.textContent = isLast ? "💌 إرسال الإجابات" : "التالي ›";
+    nextBtn.disabled = (answers[current] === undefined || answers[current] === null);
+    $("btnBack").style.visibility = current === 0 ? "hidden" : "visible";
+  }
+
+  function selectOption(idx, btn) {
+    answers[current] = idx;
+
+    var parent = btn.parentNode;
+    var children = parent.children;
+    for (var i = 0; i < children.length; i++) children[i].classList.remove("selected");
+    btn.classList.add("selected");
+    $("btnNext").disabled = false;
+
+    if (autoTimer) clearTimeout(autoTimer);
+    if (current < QUESTIONS.length - 1) {
+      autoTimer = setTimeout(function () {
+        current++;
+        renderQuestion();
+      }, 450);
+    }
+  }
+
+  function goNext() {
+    if (autoTimer) { clearTimeout(autoTimer); autoTimer = null; }
+    if (answers[current] === undefined || answers[current] === null) return;
+    if (current === QUESTIONS.length - 1) { submit(); return; }
+    current++;
+    renderQuestion();
+  }
+
+  function goBack() {
+    if (autoTimer) { clearTimeout(autoTimer); autoTimer = null; }
+    if (current === 0) return;
+    current--;
+    renderQuestion();
+  }
+
+  function submit() {
+    var raw = 0;
+    var max = QUESTIONS.length * 5;
+    for (var i = 0; i < QUESTIONS.length; i++) {
+      raw += QUESTIONS[i].o[answers[i]][1];
+    }
+    var pct = Math.round((raw / max) * 100 * 1.2);
+    if (pct > 100) pct = 100;
+    finalScore = pct;
+    renderResult(pct);
+    showScreen("screen-result");
+  }
+
+  function renderResult(pct) {
+    var name = girlName || "أموتة";
+
+    if (pct === 100) {
+      $("resTitle").textContent = "💗💗💗 مبرووووك يا " + name + " 💗💗💗";
+      $("resSub").textContent = "نتيجتك في اختبار حب مهند:";
+    } else {
+      $("resTitle").textContent = "💗 نتيجة " + name + " في اختبار حب مهند 💗";
+      $("resSub").textContent = "التقرير الرسمي يقول:";
+    }
+
+    // عداد النسبة
+    var ring = $("ring");
+    var scoreNum = $("scoreNum");
+    var cur = 0;
+    var step = Math.max(1, Math.round(pct / 40));
+    scoreNum.textContent = "0";
+    var timer = setInterval(function () {
+      cur += step;
+      if (cur >= pct) { cur = pct; clearInterval(timer); }
+      scoreNum.textContent = cur;
+      ring.style.background = "conic-gradient(#ff2d6f " + (cur * 3.6) + "deg, #ffe3ee 0deg)";
+    }, 26);
+
+    // التقرير
+    var rows = [
+      ["❤️", "حب مهند", pct],
+      ["🥹", "الاشتياق لمهند", pct],
+      ["😍", "التفكير في مهند", pct],
+      ["🫶🏻", "الاهتمام بمهند", pct],
+      ["😂", "القدرة على مقاومة مهند", 100 - pct]
+    ];
+    var html = "";
+    for (var i = 0; i < rows.length; i++) {
+      html += '<div class="rep-row"><span>' + rows[i][0] + " " + rows[i][1] + "</span><b>" + rows[i][2] + "%</b></div>";
+    }
+    $("report").innerHTML = html;
+
+    if (pct === 100) {
+      $("conclusion").textContent = '"' + name + ' وقعت في حب مهند رسميًا، ولا يوجد زر تراجع 😂❤️"';
+      $("loveNote").innerHTML =
+        "يا " + name + "، يبدو أن قلبك اختار مهند وانتهى الموضوع ❤️<br>" +
+        "تم تسجيل النتيجة رسميًا، ولا يمكن تعديلها أو حذفها 😂🔒<br>" +
+        "مهند أصبح مسؤولًا رسميًا عن قلبك من الآن ❤️🥹";
+    } else {
+      $("conclusion").textContent = '"قلب ' + name + ' يميل لمهند بنسبة ' + pct + '%… ويحتاج جرعة زيادة من مهند 😂❤️"';
+      $("loveNote").innerHTML =
+        "يا " + name + "، النتيجة تقول إن قلبك بدأ يميل لمهند… 📈❤️<br>" +
+        "بس لسا في مجال يزيد الحب شوي 😂<br>" +
+        "جرّبي مرة ثانية وكوني صادقة أكثر مع قلبك 🥹💗";
+    }
+  }
+
+  function shareResult() {
+    var name = girlName || "أموتة";
+    var line = finalScore === 100
+      ? "الخلاصة: وقعت في حب مهند رسميًا، ولا يوجد زر تراجع 😂❤️"
+      : "الخلاصة: القلب يميل لمهند… ويحتاج جرعة زيادة 😂❤️";
+    var txt =
+      "💗 نتيجة اختبار حب مهند 💗\n\n" +
+      name + " حصلت على " + finalScore + "% ❤️\n\n" +
+      line + "\n\nجرّبي أنتِ بعد:\n" + window.location.href;
+    window.open("https://wa.me/?text=" + encodeURIComponent(txt), "_blank");
+  }
+
+  function shareForm() {
+    var txt =
+      "❤️ اختبار حب أموتة لمهند ❤️\n\n" +
+      "اختبار رسمي جدًا 😂 20 سؤال حب وغزل\n" +
+      "ادخلي وجاوبي وشوفي نتيجتك من 100% 💗\n\n" +
+      window.location.href;
+    window.open("https://wa.me/?text=" + encodeURIComponent(txt), "_blank");
+  }
+
+  function restart() {
+    if (autoTimer) { clearTimeout(autoTimer); autoTimer = null; }
+    current = 0;
+    answers = new Array(QUESTIONS.length);
+    $("nameInput").value = girlName;
+    showScreen("screen-welcome");
+  }
+
+  // ربط الأحداث بعد تحميل الصفحة
+  function init() {
+    $("btnStart").addEventListener("click", startQuiz);
+    $("btnNext").addEventListener("click", goNext);
+    $("btnBack").addEventListener("click", goBack);
+    $("btnShareForm").addEventListener("click", shareForm);
+    $("btnShareResult").addEventListener("click", shareResult);
+    $("btnRestart").addEventListener("click", restart);
+
+    $("nameInput").addEventListener("keydown", function (e) {
+      if (e.key === "Enter") startQuiz();
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
